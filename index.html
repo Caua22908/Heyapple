@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Apple | O Melhor do Mundo Apple nas Suas Mãos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#09090b',
+                            darker: '#030303',
+                            blue: '#0066ff',
+                            cyan: '#00d2ff',
+                            glass: 'rgba(255, 255, 255, 0.03)',
+                            glassBorder: 'rgba(255, 255, 255, 0.08)',
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Neon glows and animations */
+        .neon-blue-glow { text-shadow: 0 0 10px rgba(0, 102, 255, 0.6), 0 0 20px rgba(0, 210, 255, 0.4); }
+        .neon-border-blue { box-shadow: 0 0 15px rgba(0, 102, 255, 0.3); border-color: rgba(0, 102, 255, 0.5); }
+        .neon-border-cyan { box-shadow: 0 0 20px rgba(0, 210, 255, 0.3); border-color: rgba(0, 210, 255, 0.5); }
+        .glassmorphism {
+            background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+        }
+        
+        /* Floating animations */
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        .floating { animation: float 6s ease-in-out infinite; }
+        
+        @keyframes float-reverse { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(10px); } }
+        .floating-reverse { animation: float-reverse 8s ease-in-out infinite; }
+
+        @keyframes pulse-glow { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.4; } }
+        .bg-glow-orb { animation: pulse-glow 10s ease-in-out infinite; }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: rgba(0, 102, 255, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 210, 255, 0.6); }
+
+        /* Active animations reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* 3D Showcase Perspective Rules */
+        .perspective-container {
+            perspective: 1200px;
+            perspective-origin: center;
+        }
+        .iphone-3d-frame {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            transform: rotateY(0deg) rotateX(5deg);
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-gray-100 font-sans overflow-x-hidden antialiased">
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-blue/10 blur-[150px] bg-glow-orb"></div>
+        <div class="absolute bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-brand-cyan/10 blur-[180px] bg-glow-orb" style="animation-delay: -5s;"></div>
+        <div class="absolute top-[40%] left-[30%] w-[35vw] h-[35vw] rounded-full bg-blue-900/10 blur-[120px] bg-glow-orb" style="animation-delay: -3s;"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 glassmorphism border-b border-white/5 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="relative w-12 h-12 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 group-hover:border-brand-cyan/50 transition-all duration-300 overflow-hidden">
+                    <img src="images/Logohey.png" alt="Logo Hey Apple" class="w-full h-full object-contain p-1">
+                    <div class="absolute inset-0 rounded-lg bg-brand-cyan/10 blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-tech text-xl font-bold tracking-wider text-white group-hover:neon-blue-glow transition-all duration-300">HEY APPLE</span>
+                    <span class="text-[10px] tracking-[0.2em] text-gray-400 font-medium">PREMIUM STORE</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#ofertas" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors duration-300">Ofertas</a>
+                <a href="#reparos" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors duration-300">Manutenção</a>
+                <a href="#vantagens" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors duration-300">Vantagens</a>
+                <a href="#contato" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors duration-300">Contato</a>
+            </nav>
+
+            <div class="hidden sm:block">
+                <a href="https://wa.me/5561998079869?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+os+iPhones+dispon%C3%ADveis." target="_blank" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-brand-blue to-brand-cyan group-hover:from-brand-blue group-hover:to-brand-cyan hover:text-white focus:ring-2 focus:outline-none focus:ring-cyan-800 transition-all duration-300">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-brand-black rounded-md group-hover:bg-opacity-0">
+                        <i class="fab fa-whatsapp mr-2 text-lg"></i>Falar com Consultor
+                    </span>
+                </a>
+            </div>
+
+            <button class="md:hidden text-gray-300 hover:text-white focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="hidden md:hidden glassmorphism border-t border-white/5 px-4 pt-4 pb-6 space-y-4" id="mobile-menu">
+            <a href="#ofertas" class="block text-base font-medium text-gray-300 hover:text-brand-cyan py-2 border-b border-white/5">Ofertas</a>
+            <a href="#reparos" class="block text-base font-medium text-gray-300 hover:text-brand-cyan py-2 border-b border-white/5">Manutenção</a>
+            <a href="#vantagens" class="block text-base font-medium text-gray-300 hover:text-brand-cyan py-2 border-b border-white/5">Vantagens</a>
+            <a href="#contato" class="block text-base font-medium text-gray-300 hover:text-brand-cyan py-2">Contato</a>
+            <div class="pt-4">
+                <a href="https://wa.me/5561998079869?text=Ol%C3%A1!+Gostaria+de+fazer+um+or%C3%A7amento." target="_blank" class="w-full flex items-center justify-center px-5 py-3 rounded-lg bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>Chamar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-semibold tracking-wider uppercase font-tech">
+                        <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                        <span>O Melhor do Mundo Apple em Brasília</span>
+                    </div>
+                    
+                    <h1 class="font-tech text-4xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-none">
+                        O Mundo Apple <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-brand-cyan to-white neon-blue-glow">
+                            nas Suas Mãos
+                        </span>
+                    </h1>
+                    
+                    <p class="text-gray-400 text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Encontre iPhones novos e seminovos com procedência garantida de até 1 ano, além da assistência técnica mais ágil e tecnológica de Brasília.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#ofertas" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-bold tracking-wider hover:shadow-[0_0_30px_rgba(0,210,255,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bolt animate-pulse"></i> Ver Ofertas de Hoje
+                        </a>
+                        <a href="#reparos" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold border border-white/10 hover:border-brand-blue/50 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench text-brand-cyan"></i> Solicitar Manutenção
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/5 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <h4 class="font-tech text-2xl font-bold text-white">1 Ano</h4>
+                            <p class="text-xs text-gray-500">De Garantia Real</p>
+                        </div>
+                        <div class="text-center lg:text-left border-x border-white/10 px-4">
+                            <h4 class="font-tech text-2xl font-bold text-white">100%</h4>
+                            <p class="text-xs text-gray-500">Procedência Original</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <h4 class="font-tech text-2xl font-bold text-white">Rápido</h4>
+                            <p class="text-xs text-gray-500">Avaliação na Hora</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-center lg:justify-end">
+                    <div class="absolute w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] rounded-full border border-brand-cyan/20 flex items-center justify-center floating">
+                        <div class="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] rounded-full border border-brand-blue/10 flex items-center justify-center floating-reverse">
+                            <div class="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] rounded-full bg-brand-blue/5 blur-xl"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative glass-card p-6 rounded-3xl w-full max-w-[380px] border border-white/10 hover:border-brand-cyan/30 transition-all duration-500 shadow-2xl flex flex-col items-center">
+                        <div class="absolute top-4 right-4 flex items-center space-x-1.5 bg-brand-cyan/10 border border-brand-cyan/20 px-2 py-1 rounded-full">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-ping"></span>
+                            <span class="text-[9px] font-bold text-brand-cyan font-tech">STORE LIVE</span>
+                        </div>
+                        
+                        <div class="w-48 h-48 flex items-center justify-center relative my-6">
+                            <div class="absolute w-28 h-44 rounded-3xl bg-gradient-to-b from-gray-900 to-gray-800 border border-white/10 shadow-xl transform -rotate-12 translate-x-[-30px] flex items-center justify-center">
+                                <div class="w-[90%] h-[95%] rounded-[22px] bg-brand-black/90 p-2 flex flex-col justify-between">
+                                    <div class="w-6 h-1 rounded-full bg-white/20 mx-auto"></div>
+                                    <img src="images/Logohey.png" alt="Logo" class="w-8 h-8 object-contain self-center opacity-30">
+                                    <div class="text-[8px] text-gray-600 text-center">Hey Apple</div>
+                                </div>
+                            </div>
+                            <div class="absolute w-28 h-44 rounded-3xl bg-gradient-to-b from-gray-900 to-gray-800 border border-brand-cyan/30 shadow-2xl transform rotate-12 translate-x-[30px] flex items-center justify-center">
+                                <div class="w-[90%] h-[95%] rounded-[22px] bg-brand-black/90 p-2 flex flex-col justify-between">
+                                    <div class="w-6 h-1 rounded-full bg-white/20 mx-auto"></div>
+                                    <img src="images/Logohey.png" alt="Logo" class="w-8 h-8 object-contain self-center opacity-30">
+                                    <div class="text-[8px] text-gray-600 text-center">Hey Apple</div>
+                                </div>
+                            </div>
+                            <div class="absolute w-30 h-48 rounded-3xl bg-gradient-to-b from-slate-800 to-slate-900 border border-brand-blue/50 shadow-[0_0_25px_rgba(0,102,255,0.4)] flex items-center justify-center z-10 transform scale-105">
+                                <div class="w-[92%] h-[96%] rounded-[24px] bg-[#09090b] p-3 flex flex-col justify-between relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/5 via-transparent to-brand-cyan/5"></div>
+                                    <div class="w-12 h-4 rounded-full bg-black/80 mx-auto flex items-center justify-center border border-white/5 z-20">
+                                        <div class="w-2 h-2 rounded-full bg-brand-cyan"></div>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center flex-grow z-20">
+                                        <img src="images/Logohey.png" alt="Logo" class="w-10 h-10 object-contain mb-1">
+                                        <span class="text-[10px] text-brand-cyan font-tech tracking-wider">Hey Apple</span>
+                                    </div>
+                                    <div class="text-[9px] text-gray-400 text-center font-tech z-20">iPhone 15 Pro Max</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center w-full mt-2">
+                            <h3 class="font-tech text-lg font-bold text-white">Peça Pelo WhatsApp</h3>
+                            <p class="text-brand-cyan text-sm font-semibold mt-1">Sua melhor taxa de Brasília</p>
+                            <p class="text-xs text-gray-400 mt-2 leading-relaxed">Seu usado entra como parte do pagamento na hora com a avaliação mais justa do DF.</p>
+                            <a href="https://wa.me/5561998079869?text=Olá! Gostaria de consultar a avaliação do meu usado na troca." target="_blank" class="w-full mt-4 block py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-brand-cyan/50 text-white text-xs font-semibold tracking-wider hover:bg-brand-cyan hover:text-brand-black transition-all duration-300">
+                                AVALIAR MEU USADO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ofertas" class="py-28 relative z-10 border-t border-white/5 bg-brand-darker overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="space-y-8 reveal">
+                    <span class="text-xs font-bold font-tech uppercase tracking-widest text-brand-cyan">Estoque Super Dinâmico</span>
+                    <h2 class="font-tech text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                        Nossas Ofertas <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">Surgem e Somem Rápido.</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Aqui na <strong>Hey Apple</strong>, nós não trabalhamos com estoques parados. Nossos iPhones novos e seminovos são vendidos no mesmo dia através de <strong>Promoções Relâmpago diárias</strong> no nosso Instagram.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-cyan text-xs mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="text-gray-300 text-sm">Atualização em tempo real nos stories e destaques.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-cyan text-xs mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="text-gray-300 text-sm">Garantia Real de até 1 ano e assistência integrada.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-cyan text-xs mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <p class="text-gray-300 text-sm">Atendimento premium personalizado focado no seu perfil.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="https://www.instagram.com/heyapplestore_/" target="_blank" class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#f91f79] to-[#b300c0] text-white font-bold text-sm tracking-wider hover:shadow-[0_0_30px_rgba(249,31,121,0.3)] transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fab fa-instagram text-lg"></i> Ver Stories de Hoje
+                        </a>
+    
+                    </div>
+                </div>
+
+                <div class="perspective-container flex items-center justify-center py-10 reveal">
+                    
+                    <div id="rotating-phone" class="iphone-3d-frame w-[280px] h-[580px] sm:w-[320px] sm:h-[650px] relative">
+                        
+                        <div class="absolute inset-0 rounded-[45px] bg-gradient-to-b from-slate-700 via-slate-800 to-slate-950 p-[4px] shadow-[0_25px_60px_rgba(0,0,0,0.8),_0_0_50px_rgba(0,102,255,0.15)] border border-white/10">
+                            
+                            <div class="w-full h-full rounded-[41px] bg-black p-[10px] relative overflow-hidden flex flex-col justify-between">
+                                
+                                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-6 rounded-full bg-black border border-white/5 z-40 flex items-center justify-end px-3">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-brand-blue/40 border border-brand-cyan/30 animate-pulse"></div>
+                                </div>
+
+                                <div class="w-full h-full rounded-[32px] bg-gradient-to-b from-brand-black relative overflow-hidden p-4 flex flex-col justify-between select-none">
+                                    
+                                    <div class="flex items-center justify-between z-30 pt-3">
+                                        <div class="flex items-center space-x-2">
+                                            <img src="images/Logohey.png" alt="Logo" class="w-7 h-7 rounded-full bg-white/5 border border-white/10 p-0.5 object-contain">
+                                            <div class="flex flex-col">
+                                                <span class="text-[10px] font-bold text-white leading-tight">Heyapplestore</span>
+                                                <span class="text-[8px] text-gray-400">Oferta Ativa</span>
+                                            </div>
+                                        </div>
+                                        <span class="text-[9px] bg-brand-cyan/20 text-brand-cyan font-bold px-2 py-0.5 rounded border border-brand-cyan/30">BSB</span>
+                                    </div>
+
+                                    <div class="flex flex-col items-center justify-center flex-grow py-4 space-y-4 z-30 text-center">
+                                        <div class="w-28 h-28 relative flex items-center justify-center animate-[float_4s_ease-in-out_infinite]">
+                                            <div class="absolute inset-0 bg-brand-cyan/10 blur-xl rounded-full"></div>
+                                            <img src="images/Logohey.png" alt="Promo" class="w-24 h-24 border-radius-lg object-contain relative z-10 drop-shadow-[0_10px_15px_rgba(0,210,255,0.3)]">
+                                        </div>
+
+                                        <div class="space-y-1">
+                                            <span class="text-[9px] bg-[#f91f79]/20 text-[#f91f79] font-bold tracking-widest uppercase px-2 py-0.5 rounded border border-[#f91f79]/30">OFERTA RELÂMPAGO</span>
+                                            <h4 class="font-tech text-base font-bold text-white tracking-wide">iPhone 16 Pro Max</h4>
+                                            <p class="text-xs text-brand-cyan font-tech">Consulte preço do dia no Whats!</p>
+                                        </div>
+
+                                        <div class="bg-white/5 border border-white/5 rounded-xl p-2.5 w-full space-y-1">
+                                            <div class="flex justify-between text-[9px] text-gray-400">
+                                                <span>Saúde Bateria:</span>
+                                                <span class="text-green-400 font-bold">100% (Lacrado)</span>
+                                            </div>
+                                            <div class="flex justify-between text-[9px] text-gray-400">
+                                                <span>Garantia:</span>
+                                                <span class="text-white font-bold">1 Ano Completo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col items-center justify-end space-y-2 pb-2 z-30">
+                                        <div class="animate-bounce text-brand-cyan text-sm">
+                                            <i class="fa-solid fa-angle-up"></i>
+                                        </div>
+                                        <a href="https://wa.me/5561998079869?text=Olá! Vi o Story do iPhone 16 Pro Max no site, ele ainda está disponível?" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-white text-center text-xs font-bold font-tech tracking-widest uppercase shadow-lg shadow-brand-cyan/20">
+                                            Garantir Oferta
+                                        </a>
+                                        <span class="text-[8px] text-gray-500">Arraste para cima ou toque para chamar</span>
+                                    </div>
+
+                                    <div class="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-brand-blue/20 blur-2xl z-10"></div>
+                                    <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-brand-cyan/15 blur-2xl z-10"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute inset-x-[6px] inset-y-[6px] rounded-[39px] bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none z-40"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="reparos" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold font-tech uppercase tracking-widest text-brand-cyan">Manutenção Especializada</span>
+                <h2 class="font-tech text-3xl sm:text-4xl font-bold mt-2 text-white">Assistência Premium do DF</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-brand-blue to-brand-cyan mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">Consertamos seu aparelho com as melhores peças do mercado, técnicos experientes, garantia e agilidade sem igual.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal">
+                    <div id="btn-rep-tela" onclick="showRepairDetail('tela')" class="glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-brand-cyan/40 hover:border-brand-cyan/80 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan group-hover:bg-brand-cyan/20 transition-colors">
+                                <i class="fa-solid fa-mobile-screen-button text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-tech text-sm">Troca de Tela</h4>
+                                <p class="text-gray-500 text-[11px] mt-0.5">Cores vivas, touch perfeito.</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-brand-cyan transition-colors"></i>
+                    </div>
+
+                    <div id="btn-rep-bateria" onclick="showRepairDetail('bateria')" class="glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-white/5 hover:border-brand-cyan/30 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-cyan group-hover:bg-brand-cyan/10 transition-colors">
+                                <i class="fa-solid fa-battery-three-quarters text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-tech text-sm">Bateria (Saúde 100%)</h4>
+                                <p class="text-gray-500 text-[11px] mt-0.5">Restaure a vida do seu celular.</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-brand-cyan transition-colors"></i>
+                    </div>
+
+                    <div id="btn-rep-conector" onclick="showRepairDetail('conector')" class="glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-white/5 hover:border-brand-cyan/30 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-cyan group-hover:bg-brand-cyan/10 transition-colors">
+                                <i class="fa-solid fa-bolt-lightning text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-tech text-sm">Conector de Carga</h4>
+                                <p class="text-gray-500 text-[11px] mt-0.5">Volte a carregar sem mau contato.</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-brand-cyan transition-colors"></i>
+                    </div>
+
+                    <div id="btn-rep-cameras" onclick="showRepairDetail('cameras')" class="glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-white/5 hover:border-brand-cyan/30 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-cyan group-hover:bg-brand-cyan/10 transition-colors">
+                                <i class="fa-solid fa-camera text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-tech text-sm">Câmera e Lente</h4>
+                                <p class="text-gray-500 text-[11px] mt-0.5">Foco limpo e lentes sem arranhões.</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-brand-cyan transition-colors"></i>
+                    </div>
+
+                    <div id="btn-rep-placa" onclick="showRepairDetail('placa')" class="glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-white/5 hover:border-brand-cyan/30 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-cyan group-hover:bg-brand-cyan/10 transition-colors">
+                                <i class="fa-solid fa-microchip text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-tech text-sm">Reparos de Placa</h4>
+                                <p class="text-gray-500 text-[11px] mt-0.5">Consertos avançados em microchips.</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-brand-cyan transition-colors"></i>
+                    </div>
+
+                    <div id="btn-rep-vidro" onclick="showRepairDetail('vidro')" class="glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-white/5 hover:border-brand-cyan/30 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-cyan group-hover:bg-brand-cyan/10 transition-colors">
+                                <i class="fa-solid fa-screwdriver text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold font-tech text-sm">Vidro Traseiro</h4>
+                                <p class="text-gray-500 text-[11px] mt-0.5">Troca rápida do vidro quebrado.</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-brand-cyan transition-colors"></i>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 reveal" style="transition-delay: 150ms;">
+                    <div id="repair-detail-card" class="glass-card p-8 rounded-3xl border border-brand-cyan/40 shadow-[0_0_30px_rgba(0,210,255,0.1)] relative overflow-hidden flex flex-col justify-between min-h-[350px]">
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3 text-brand-cyan font-tech font-semibold tracking-wider text-xs">
+                                <i class="fa-solid fa-screwdriver-wrench animate-pulse"></i>
+                                <span>REPARO ESPECIALIZADO</span>
+                            </div>
+                            <h3 class="font-tech text-xl font-bold text-white tracking-wide">Troca de Tela</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Seu iPhone com tela trincada, manchas ou sem touch? Fazemos a troca rápida por uma tela nova de alta fidelidade de cores, brilho intenso e touch de alta precisão.</p>
+                        </div>
+                        <div class="border-t border-white/5 pt-4 my-4 flex flex-col space-y-2 text-xs text-gray-500">
+                            <span><i class="fa-regular fa-clock mr-1 text-brand-blue"></i> Tempo médio: <strong>40 minutos</strong></span>
+                            <span><i class="fa-solid fa-shield-halved mr-1 text-brand-cyan"></i> Garantia: <strong>90 dias</strong></span>
+                        </div>
+                        <a href="https://wa.me/5561998079869?text=Ol%C3%A1!+Gostaria+de+um+or%C3%A7amento+para+troca+de+tela+do+meu+iPhone." target="_blank" class="w-full mt-3 flex items-center justify-center py-2.5 rounded-lg bg-brand-blue/20 hover:bg-brand-cyan hover:text-brand-black text-brand-cyan font-bold transition-all duration-300 text-xs">
+                            ORÇAMENTO DE TELA VIA WHATSAPP
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="vantagens" class="py-24 relative z-10 bg-brand-darker border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="font-tech text-3xl sm:text-4xl font-bold text-white">Por que escolher a Hey Apple?</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-brand-blue to-brand-cyan mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card p-8 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-shield-halved text-2xl text-brand-blue"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-2">Garantia Real</h3>
+                    <p class="text-sm text-gray-400">Até 1 ano de garantia em nossos aparelhos para sua total tranquilidade.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-money-bill-transfer text-2xl text-brand-cyan"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-2">Melhor Avaliação</h3>
+                    <p class="text-sm text-gray-400">Aceitamos seu iPhone usado como parte do pagamento com a melhor taxa.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-credit-card text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-2">Parcelamento Fácil</h3>
+                    <p class="text-sm text-gray-400">Condições imperdíveis no cartão de crédito com as menores taxas do mercado.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-truck-fast text-2xl text-emerald-400"></i>
+                    </div>
+                    <h3 class="font-tech text-lg font-bold text-white mb-2">Entrega Expressa</h3>
+                    <p class="text-sm text-gray-400">Receba seu aparelho em mãos em Brasília e região no mesmo dia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="space-y-8 reveal">
+                    <span class="text-xs font-bold font-tech uppercase tracking-widest text-brand-cyan">Fale Conosco</span>
+                    <h2 class="font-tech text-3xl sm:text-4xl font-bold text-white">Pronto para dar o próximo passo?</h2>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        Preencha o formulário rápido para receber o contato do nosso consultor diretamente no seu WhatsApp com propostas de financiamento, trocas ou orçamentos de assistência.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-cyan">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xs font-tech uppercase tracking-wider">Atendimento Rápido</h4>
+                                <p class="text-gray-500 text-sm mt-1">(61) 99807-9869</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xs font-tech uppercase tracking-wider">Localização</h4>
+                                <p class="text-gray-500 text-sm mt-1">Brasília - DF CL 116 bloco K Centro empresarial Santa Maria</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal" style="transition-delay: 150ms;">
+                    <div class="glass-card p-8 sm:p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue/5 to-transparent"></div>
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6 relative z-10">
+                            <div>
+                                <label for="form-name" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Seu Nome</label>
+                                <input type="text" id="form-name" required placeholder="Ex: João Silva" class="w-full bg-white/5 border border-white/10 focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all duration-300">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="form-phone" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Seu WhatsApp</label>
+                                    <input type="tel" id="form-phone" required placeholder="Ex: (61) 99999-9999" class="w-full bg-white/5 border border-white/10 focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label for="form-interest" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Seu Interesse</label>
+                                    <select id="form-interest" required class="w-full bg-white/5 border border-white/10 focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan rounded-xl px-4 py-3 text-sm text-white outline-none transition-all duration-300 [&>option]:bg-brand-black [&>option]:text-white">
+                                        <option value="Comprar um iPhone" class="bg-brand-black">Comprar um iPhone</option>
+                                        <option value="Manutenção / Assistência" class="bg-brand-black">Manutenção / Assistência</option>
+                                        <option value="Avaliar meu usado" class="bg-brand-black">Avaliar meu usado</option>
+                                        <option value="Outro Assunto" class="bg-brand-black">Outro Assunto</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-message" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Sua Mensagem (Opcional)</label>
+                                <textarea id="form-message" rows="4" placeholder="Ex: Tenho interesse em um iPhone 15 e quero dar o meu 13 de entrada..." class="w-full bg-white/5 border border-white/10 focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all duration-300 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan hover:shadow-cyan-500/20 text-white font-bold tracking-wider hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 uppercase text-xs flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp text-sm"></i> Enviar Mensagem para o WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer-contato" class="relative z-10 border-t border-white/10 bg-black pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center space-x-3 group">
+                        <div class="w-10 h-10 flex items-center justify-center rounded bg-white/5 border border-white/10 overflow-hidden">
+                            <img src="images/Logohey.png" alt="Logo" class="w-full h-full object-contain p-1">
+                        </div>
+                        <span class="font-tech text-lg font-bold tracking-wider text-white">HEY APPLE</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A sua loja premium em Brasília. Especialistas no ecossistema Apple, oferecendo vendas e assistência técnica com transparência e excelência.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="https://www.instagram.com/heyapplestore_/" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-brand-cyan hover:bg-brand-cyan/10 transition-colors border border-white/5">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5561998079869" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-green-400 hover:bg-green-400/10 transition-colors border border-white/5">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-tech text-white font-bold mb-6 tracking-wider uppercase text-sm">Links Úteis</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#ofertas" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Ver Ofertas</a></li>
+                        <li><a href="#reparos" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Assistência Técnica</a></li>
+                        <li><a href="#vantagens" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Nossas Vantagens</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-tech text-white font-bold mb-6 tracking-wider uppercase text-sm">Fale Conosco</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fab fa-whatsapp text-brand-cyan mt-1"></i>
+                            <div>
+                                <span class="block text-gray-300 text-sm">WhatsApp / Telefone</span>
+                                <a href="https://wa.me/5561998079869" class="text-gray-400 hover:text-white text-sm transition-colors">(61) 99807-9869</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-cyan mt-1"></i>
+                            <div>
+                                <span class="block text-gray-300 text-sm">Atendimento Especializado</span>
+                                <span class="text-gray-400 text-sm">Brasília - DF CL 116 bloco K Centro empresarial Santa Maria<br> (Consulte opções de delivery)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-regular fa-clock text-brand-cyan mt-1"></i>
+                            <div>
+                                <span class="block text-gray-300 text-sm">Horário</span>
+                                <span class="text-gray-400 text-sm">Seg a Sex: 09h às 18h<br>Sáb: 09h às 14h</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between">
+                <p class="text-gray-600 text-xs text-center md:text-left">
+                    &copy; 2026 Hey Apple Store. Todos os direitos reservados.
+                </p>
+                <p class="text-gray-600 text-xs mt-2 md:mt-0">
+                    Não possuímos vínculo oficial com a Apple Inc.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar num link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Header Blur no Scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-[0_4px_30px_rgba(0,0,0,0.5)]', 'bg-[#09090b]/90');
+            } else {
+                header.classList.remove('shadow-[0_4px_30px_rgba(0,0,0,0.5)]', 'bg-[#09090b]/90');
+            }
+        });
+
+        // Animação de Reveal no Scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger na carga inicial
+
+        /* DETALHAMENTO DINÂMICO DE MANUTENÇÃO */
+        const repairDetails = {
+            tela: {
+                title: "Troca de Tela",
+                slug: "troca de tela",
+                desc: "Seu iPhone com tela trincada, manchas ou sem touch? Fazemos a troca rápida por uma tela nova de alta fidelidade de cores, brilho intenso e touch de alta precisão.",
+                time: "40 minutos",
+                guarantee: "90 dias"
+            },
+            bateria: {
+                title: "Troca de Bateria",
+                slug: "troca de bateria",
+                desc: "Aparelho descarregando rápido, desligando sozinho ou com saúde baixa? Substituímos sua bateria por uma de alta performance, devolvendo a autonomia original do seu aparelho de forma segura.",
+                time: "30 minutos",
+                guarantee: "90 dias"
+            },
+            conector: {
+                title: "Conector de Carga",
+                slug: "reparo do conector de carga",
+                desc: "Seu celular não reconhece o cabo, carrega com mau contato ou só de um lado? Fazemos a limpeza interna ou a troca completa do conector Lightning/USB-C com peças de reposição premium.",
+                time: "45 minutos",
+                guarantee: "90 dias"
+            },
+            cameras: {
+                title: "Câmera e Lente",
+                slug: "reparo de câmera",
+                desc: "Câmera embaçada, vibrando, sem foco ou com o vidro externo trincado? Trocamos tanto a lente externa de vidro quanto o módulo completo da câmera traseira ou frontal para fotos perfeitas.",
+                time: "50 minutos",
+                guarantee: "90 dias"
+            },
+            placa: {
+                title: "Reparo de Placa",
+                slug: "reparo avançado de placa",
+                desc: "Seu celular não liga, parou o Face ID, Wi-Fi ou não emite som? Temos laboratório de microeletrônica para diagnosticar e soldar componentes integrados na placa com precisão máxima.",
+                time: "1 a 3 dias",
+                guarantee: "90 dias"
+            },
+            vidro: {
+                title: "Vidro Traseiro",
+                slug: "troca do vidro traseiro",
+                desc: "Tampa traseira quebrada ou trincada? Realizamos a substituição completa apenas do vidro traseiro utilizando tecnologia avançada de corte a laser para não danificar o chassi do celular.",
+                time: "3 horas",
+                guarantee: "90 dias"
+            }
+        };
+
+        function showRepairDetail(slug) {
+            const detail = repairDetails[slug];
+            if (!detail) return;
+
+            // Atualiza botões do seletor
+            const slugs = Object.keys(repairDetails);
+            slugs.forEach(s => {
+                const btn = document.getElementById(`btn-rep-${s}`);
+                if (s === slug) {
+                    btn.className = "glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-brand-cyan/40 hover:border-brand-cyan/80 transition-all duration-300 group";
+                    const iconContainer = btn.querySelector('.w-12');
+                    iconContainer.className = "w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan group-hover:bg-brand-cyan/20 transition-colors";
+                } else {
+                    btn.className = "glass-card p-5 rounded-2xl cursor-pointer flex items-center justify-between border border-white/5 hover:border-brand-cyan/30 transition-all duration-300 group";
+                    const iconContainer = btn.querySelector('.w-12');
+                    iconContainer.className = "w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-brand-cyan group-hover:bg-brand-cyan/10 transition-colors";
+                }
+            });
+
+            // Atualiza o card de detalhe
+            const card = document.getElementById('repair-detail-card');
+            card.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 text-brand-cyan font-tech font-semibold tracking-wider text-xs">
+                        <i class="fa-solid fa-screwdriver-wrench animate-pulse"></i>
+                        <span>REPARO ESPECIALIZADO</span>
+                    </div>
+                    <h3 class="font-tech text-xl font-bold text-white tracking-wide">${detail.title}</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">${detail.desc}</p>
+                </div>
+                <div class="border-t border-white/5 pt-4 my-4 flex flex-col space-y-2 text-xs text-gray-500">
+                    <span><i class="fa-regular fa-clock mr-1 text-brand-blue"></i> Tempo médio: <strong>${detail.time}</strong></span>
+                    <span><i class="fa-solid fa-shield-halved mr-1 text-brand-cyan"></i> Garantia: <strong>${detail.guarantee}</strong></span>
+                </div>
+                <a href="https://wa.me/5561998079869?text=Ol%C3%A1!+Gostaria+de+um+or%C3%A7amento+para+${encodeURIComponent(detail.slug)}+do+meu+iPhone." target="_blank" class="w-full mt-3 flex items-center justify-center py-2.5 rounded-lg bg-brand-blue/20 hover:bg-brand-cyan hover:text-brand-black text-brand-cyan font-bold transition-all duration-300 text-xs">
+                    ORÇAMENTO DE ${detail.title.toUpperCase()} VIA WHATSAPP
+                </a>
+            `;
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const interest = document.getElementById('form-interest').value;
+            const message = document.getElementById('form-message').value;
+
+            const baseText = `Olá Paulo, meu nome é ${name}. Vi a Landing Page e gostaria de falar sobre: *${interest}*.\r\n\r\n📱 *Contato:* ${phone}\r\n💬 *Mais detalhes:* ${message || 'Nenhum informado'}`;
+            const encodedText = encodeURIComponent(baseText);
+            
+            // Redireciona para o WhatsApp
+            window.open(`https://wa.me/5561998079869?text=${encodedText}`, '_blank');
+        }
+
+        /* ========================================================
+           SCROLL INTERACTIVE 3D IPHONE ROTATION
+           ======================================================== */
+        window.addEventListener('scroll', () => {
+            const phone = document.getElementById('rotating-phone');
+            const section = document.getElementById('ofertas');
+            
+            if (!phone || !section) return;
+
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            const sectionHeight = rect.height;
+            const startPoint = windowHeight; 
+            const endPoint = -sectionHeight; 
+            
+            const totalDistance = startPoint - endPoint;
+            const currentPosition = rect.top - endPoint;
+            const rawFraction = 1 - (currentPosition / totalDistance);
+            const scrollFraction = Math.max(0, Math.min(1, rawFraction)); 
+
+            const minRotation = -35;
+            const maxRotation = 35;
+            const calculatedRotation = minRotation + (scrollFraction * (maxRotation - minRotation));
+
+            // Aplica rotação 3D suave conforme o scroll da página
+            phone.style.transform = `rotateY(${calculatedRotation}deg) rotateX(${8 - (scrollFraction * 4)}deg)`;
+        });
+    </script>
+</body>
+</html>
